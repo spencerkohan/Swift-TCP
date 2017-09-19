@@ -23,9 +23,9 @@ open class Connection : Hashable {
     let socket : Socket
     
     public struct Events {
-        let dataReceived = Event<Data>()
-        let didOpen = Event<Void>()
-        let didClose = Event<Void>()
+        public let dataReceived = Event<Data>()
+        public let didOpen = Event<Void>()
+        public let didClose = Event<Void>()
     }
     
     public let events = Events()

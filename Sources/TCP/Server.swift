@@ -16,9 +16,9 @@ open class Server {
     }
     
     public struct Events {
-        let clientConnected = Event<Connection>()
-        let clientDisconnected = Event<Connection>()
-        let dataReceived = Event<Data>()
+        public let clientConnected = Event<Connection>()
+        public let clientDisconnected = Event<Connection>()
+        public let dataReceived = Event<Data>()
     }
     
     open let events = Events()

@@ -4,7 +4,8 @@
 import PackageDescription
 
 func localModulesPath(_ moduleName: String) -> String {
-    return "/Users/spencerkohan/Projects/Personal/SwiftModules/\(moduleName)"
+    return "../\(moduleName)"
+    //return "/Users/spencerkohan/Projects/Personal/SwiftModules/\(moduleName)"
 }
 
 

@@ -13,10 +13,12 @@ public class LinuxDispatchQueue {
     let opQueue : OperationQueue = OperationQueue()
     
     public init(label: String) {
+        print("creating queue: \(label)")
         opQueue.name = label
     }
     
     public func async(execute work: @escaping () -> Swift.Void) {
+        print("executing async...")
         opQueue.addOperation(work)
     }
     

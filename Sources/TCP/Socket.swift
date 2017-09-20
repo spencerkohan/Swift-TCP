@@ -31,7 +31,9 @@ public class Socket {
     func connect(onFinish: @escaping ()->()) {
         print("connecting...")
         connectQueue.async {
+            print("Connecting to host")
             CClientSocketConnectToHost(&self.socketId, self.host, Int32(self.port))
+            print("Socket id: \(self.socketId)")
             onFinish()
         }
     }

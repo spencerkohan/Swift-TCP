@@ -44,7 +44,9 @@ class TCPTests: XCTestCase {
             print("Client: Data received: \(string ?? "")")
         }
         
-        client.open {}
+        client.open {
+            print("did open...")
+        }
         
         waitForExpectations(timeout: 100) {_ in}
 
@@ -56,5 +58,6 @@ class TCPTests: XCTestCase {
 
     static var allTests = [
         ("testExample", testExample),
+        ("testClientServer", testClientServer),
     ]
 }

@@ -34,6 +34,7 @@ open class Server {
     open func listen() {
         CServerSocketListen(&socketId, Int32(port))
         print("listening on port: \(port)")
+        print("socket: \(socketId)")
         
         acceptQueue.async {
             while true {

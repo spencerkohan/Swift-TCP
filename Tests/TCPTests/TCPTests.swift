@@ -17,14 +17,15 @@ class TCPTests: XCTestCase {
         
         let server = Server(port: 3000)
         
-        server.events.clientConnected.on { client in
+        _ = server.events.clientConnected.on { client in
             print("Client connected: \(client.id)")
             guard let data = "Pasta".data(using: .utf8) else { return }
             client.send(data: data)
-            client.events.dataReceived.on { data in
+            _ = client.events.dataReceived.on { data in
                 let string = String(data:data, encoding: .utf8)
                 print("Server: Data received: \(string ?? "")")
                 client.send(data: data)
+                expectation.fulfill()
             }
 
         }
@@ -32,13 +33,13 @@ class TCPTests: XCTestCase {
         server.listen()
         
         let client = Connection(host: "localhost", port: 3000)
-        client.events.didOpen.on {
+        _ = client.events.didOpen.on {
             print("Connection did open")
             guard let data = "Hola".data(using: .utf8) else { return }
             client.send(data: data)
         }
         
-        client.events.dataReceived.on { data in
+        _ = client.events.dataReceived.on { data in
             let string = String(data:data, encoding: .utf8)
             print("Client: Data received: \(string ?? "")")
         }

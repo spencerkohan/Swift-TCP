@@ -1,13 +1,26 @@
 import XCTest
+@testable import EventEmitter
 @testable import TCP
 
 class TCPTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-       
+
+    func testEvents() {
+
+        let expectation = self.expectation(description: "Event")
+
+        let event = Event<String>()
+
+        _ = event.on { string in 
+            print("Event received: \(string)")
+            expectation.fulfill()
+        }
+
+        event.emit("hola")
+
+        waitForExpectations(timeout: 1) {_ in}
+
     }
+
     
     func testClientServer() {
         
@@ -57,7 +70,7 @@ class TCPTests: XCTestCase {
 
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testEvents", testEvents),
         ("testClientServer", testClientServer),
     ]
 }

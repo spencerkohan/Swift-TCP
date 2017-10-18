@@ -28,7 +28,7 @@ void CSocketRead(int socketId, char* buffer, int maxBufferSize, int* bytesReceiv
     buffer[*bytesReceived] = '\0';
 }
 
-void CSocketWrite(int socketId, const char* buffer, int bufferSize) {
+void CSocketWrite(int socketId, const unsigned char* buffer, int bufferSize) {
     if (send(socketId, buffer, bufferSize, 0) == -1){
         perror("send");
     }

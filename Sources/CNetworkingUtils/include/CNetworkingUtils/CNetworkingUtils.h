@@ -9,7 +9,7 @@
 #define CNetworkingUtils_h
 
 void CSocketRead(int socketId, char* buffer, int maxBufferSize, int* bytesReceived);
-void CSocketWrite(int socketId, const char* buffer, int bufferSize);
+void CSocketWrite(int socketId, const unsigned char* buffer, int bufferSize);
 void CSocketClose(int socketId);
 
 // Clienrt handling

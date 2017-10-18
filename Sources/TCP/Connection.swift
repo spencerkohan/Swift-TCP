@@ -44,6 +44,7 @@ open class Connection : Hashable {
     public func open(onOpen:@escaping ()->()) {
         socket.connect {
             self.events.didOpen.emit(())
+            onOpen()
             self.startReading()
         }
     }

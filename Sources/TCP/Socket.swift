@@ -45,14 +45,14 @@ public class Socket {
     func read() -> Data? {
         let maxDataSize: Int = 1024
         var bytesReceived : Int32 = 0
-        var buffer : [Int8] = (0..<maxDataSize).map { _ in
+        var buffer : [UInt8] = (0..<maxDataSize).map { _ in
             return 0
         }
         CSocketRead(socketId, &buffer, Int32(maxDataSize), &bytesReceived)
         if bytesReceived > 0 {
             let subBuffer = buffer[0..<Int(bytesReceived)]
             let data = Data(bytes: subBuffer.map {
-                return UInt8(exactly: $0) ?? 0
+                return $0
             })
             return data
         }

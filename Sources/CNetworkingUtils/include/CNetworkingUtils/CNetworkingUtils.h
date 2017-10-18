@@ -8,7 +8,7 @@
 #ifndef CNetworkingUtils_h
 #define CNetworkingUtils_h
 
-void CSocketRead(int socketId, char* buffer, int maxBufferSize, int* bytesReceived);
+void CSocketRead(int socketId, unsigned char* buffer, int maxBufferSize, int* bytesReceived);
 void CSocketWrite(int socketId, const unsigned char* buffer, int bufferSize);
 void CSocketClose(int socketId);
 

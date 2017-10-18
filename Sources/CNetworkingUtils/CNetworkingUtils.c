@@ -21,7 +21,7 @@
 
 #define BUFSIZE 1024
 
-void CSocketRead(int socketId, char* buffer, int maxBufferSize, int* bytesReceived) {
+void CSocketRead(int socketId, unsigned char* buffer, int maxBufferSize, int* bytesReceived) {
     if ((*bytesReceived=recv(socketId, buffer, maxBufferSize, 0)) == -1) {
         perror("recv");
     }

@@ -60,7 +60,7 @@ public class Socket {
     }
     
     func write(_ data: inout Data) {
-        let buffer = String(data:data, encoding:.utf8)
+        let buffer : [Int8] = data.map { return Int8(exactly:$0) ?? 0 }
         CSocketWrite(socketId, buffer, Int32(data.count))
     }
     

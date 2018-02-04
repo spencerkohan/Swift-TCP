@@ -62,9 +62,6 @@ class TCPTests: XCTestCase {
         }
         
         waitForExpectations(timeout: 100) {_ in}
-
-        
-        
         
     }
 

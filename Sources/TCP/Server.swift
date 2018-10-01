@@ -21,7 +21,7 @@ open class Server {
         public let dataReceived = Event<Data>()
     }
     
-    open let events = Events()
+    public let events = Events()
     
     open var connections = Set<Connection>()
  
